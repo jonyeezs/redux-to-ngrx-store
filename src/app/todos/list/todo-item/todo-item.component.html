@@ -1,0 +1,11 @@
+<div>
+  {{todo.label}}
+  <div>
+    {{todo.complete ? 'done' : 'do it!'}}
+  </div>
+</div>
+<div *ngFor="let tag of todo.tags">
+  {{tag}}
+</div>
+<button (click)="onEdit()">Edit</button>
+<button (click)="onDelete()">Delete</button>

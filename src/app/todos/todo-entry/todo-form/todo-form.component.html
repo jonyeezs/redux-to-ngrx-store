@@ -1,0 +1,9 @@
+<form [formGroup]="todoForm">
+  <label>Name
+    <input type="text" formControlName="label">
+  </label>
+
+  <app-tags (add)="onAdd($event)"></app-tags>
+
+  <button type="button" (click)="saveTodo(todoForm)">Save</button>
+</form>
