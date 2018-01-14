@@ -7,7 +7,7 @@
 
 ---
 
-> This repo serves as the seed project for the Ultimate Angular NGRX Store + Effects course, as well as stepped solutions in separate branches, come and [learn NGRX](https://ultimateangular.com/ngrx-store-effects) with us!
+> This repo is my learning experience on the Ultimate Angular NGRX Store + Effects course.
 
 ## Prerequisites
 
@@ -32,8 +32,6 @@ npm install -g yarn
 #### Installing dependencies
 
 ```bash
-cd <redux-store-project>
-
 yarn install
 # OR
 npm install
@@ -48,3 +46,16 @@ npm start
 ```
 
 Visit [localhost:8000](localhost:8000) in your browser.
+
+## Resources
+
+There are several resources used inside this project, of which you can read
+further about to dive deeper or understand in more detail what they are:
+
+* [Angular](https://angular.io)
+* [ngrx/store](https://github.com/ngrx/platform/blob/master/docs/store/README.md)
+  docs
+* [ngrx/effects](https://github.com/ngrx/platform/blob/master/docs/effects/README.md)
+  docs
+* [npm](https://www.npmjs.com/)
+* [Webpack](https://webpack.js.org/)
