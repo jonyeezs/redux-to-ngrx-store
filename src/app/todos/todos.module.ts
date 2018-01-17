@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { StoreModule } from '@ngrx/store';
+import { reducers } from '../store';
+
 import { Routes, RouterModule } from '@angular/router';
 
 import { TagsModule } from './tags/tags.module';
@@ -31,6 +34,9 @@ export const ROUTES: Routes = [
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild(ROUTES),
+    // This allows for lazy loading
+    // And still attach it to the root store.
+    StoreModule.forFeature('todos', reducers),
     TagsModule
   ],
   declarations: [ListComponent, TodoEntryComponent, TodoFormComponent, TodoItemComponent]
