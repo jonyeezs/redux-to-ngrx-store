@@ -3,3 +3,4 @@
 // in all situations
 export * from './reducers';
 export * from './actions/todos.action';
+export * from './selectors';

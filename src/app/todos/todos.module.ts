@@ -36,6 +36,7 @@ export const ROUTES: Routes = [
     RouterModule.forChild(ROUTES),
     // This allows for lazy loading
     // And still attach it to the root store.
+    // This feature is called todos.
     StoreModule.forFeature('todos', reducers),
     TagsModule
   ],

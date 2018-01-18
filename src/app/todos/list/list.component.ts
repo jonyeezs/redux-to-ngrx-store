@@ -1,31 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import * as fromStore from '../../store';
+
 import { Todo } from '../../models/Todo';
 
 @Component({
   selector: 'app-list',
-  templateUrl: './list.component.html',
+  template: `
+  <div class="todos">
+    <app-todo-item *ngFor="let item of (todos$ | async)" class="list"
+      [todo]="item"
+      (delete)="onDelete($event)">
+    </app-todo-item>
+    <a routerLink="./new" class="btn">New Todo</a>
+  </div>`,
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
 
-  public todos: Todo[];
-  constructor() { }
+  public todos$: Observable<Todo[]>;
+  constructor(private store: Store<fromStore.AppState>) { }
 
   ngOnInit() {
-    this.todos = [{
-      id: 1,
-      label: 'first',
-      complete: false,
-      tags: ['a', 'b'],
-    }, {
-      id: 2,
-      label: 'second example',
-      complete: true,
-      tags: [],
-    }];
+    // The dollar sign indicates the variable is an observable
+    this.todos$ = this.store.select(fromStore.getTodos);
   }
   onDelete(id) {
-    this.todos = this.todos.filter((item) => item.id !== id);
+    // this.todos = this.todos.filter((item) => item.id !== id);
   }
 }
