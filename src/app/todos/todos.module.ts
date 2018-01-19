@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
-import { reducers } from '../store';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers, effects } from '../store';
 
 import { Routes, RouterModule } from '@angular/router';
 
@@ -38,6 +39,7 @@ export const ROUTES: Routes = [
     // And still attach it to the root store.
     // This feature is called todos.
     StoreModule.forFeature('todos', reducers),
+    EffectsModule.forFeature(effects),
     TagsModule
   ],
   declarations: [ListComponent, TodoEntryComponent, TodoFormComponent, TodoItemComponent]
