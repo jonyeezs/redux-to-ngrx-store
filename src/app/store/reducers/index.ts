@@ -7,6 +7,7 @@
 import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
 
 import * as fromTodos from './todos.reducers';
+import * as Router from './router.reducer';
 
 // Every sub-reducer-state that were define in your reducer files,
 // Should be added to here as a dictionary.

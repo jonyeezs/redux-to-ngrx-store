@@ -2,6 +2,7 @@ import * as fromTodos from '../actions/todos.action';
 
 import { Todo } from '../../models/Todo';
 
+// Reducer's state
 export interface TodosState {
     // both load flags are used for spinners
     // no more putting the state on the controller but all managed
