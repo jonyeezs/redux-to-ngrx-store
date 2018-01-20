@@ -1,36 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import * as fromStore from '../../store';
+
 import { Todo } from '../../models/Todo';
 @Component({
   selector: 'app-todo-entry',
   template: `
     <app-todo-form
-      [todo]="todo"
+      [todo]="todo$ | async"
       (update)="onUpdate($event)">
     </app-todo-form>`,
   styleUrls: ['./todo-entry.component.css']
 })
 export class TodoEntryComponent implements OnInit {
 
-  todo: Todo;
+  todo$: Observable<Todo>;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private store: Store<fromStore.AppState>) { }
 
   ngOnInit() {
-    const param = this.route.snapshot.params.id;
-    if (param === 'new') {
-      this.todo = {
-        label: '',
-        complete: false,
-        tags: []
-      };
-    } else {
-      // Get todo with Id
-    }
+    this.todo$ = this.store.select(fromStore.getSelectedTodo);
   }
 
   onUpdate(updatedTodo: Todo) {
     console.table(updatedTodo);
-    this.router.navigate(['todos']);
+
   }
 }

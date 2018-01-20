@@ -21,7 +21,9 @@ export const ROUTES: Routes = [
     component: ListComponent,
   },
   {
-    path: ':id',
+    // give a specific name for the ID
+    // As we may get confuse with the many different id we are refering to
+    path: ':todoId',
     component: TodoEntryComponent,
   },
   {
