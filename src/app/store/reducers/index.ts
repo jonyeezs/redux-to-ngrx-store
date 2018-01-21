@@ -8,12 +8,14 @@ import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
 
 import * as fromTodos from './todos.reducers';
 import * as Router from './router.reducer';
+import * as fromTags from './tags.reducer';
 
 // Every sub-reducer-state that were define in your reducer files,
 // Should be added to here as a dictionary.
 // Defining the structure of our entire reducer state tree
 export interface AppState {
   todos: fromTodos.TodosState;
+  tags: fromTags.TagsState;
 }
 
 // Register all reducers
@@ -21,9 +23,10 @@ export interface AppState {
 // These reducer functions are called with each dispatched action
 // and the current or initial state and return a new immutable state.
 export const reducers: ActionReducerMap<AppState> = {
-  todos: fromTodos.TodosReducer
+  todos: fromTodos.TodosReducer,
+  tags: fromTags.TagsReducer
 };
 
 // base reference to the state of this feature
 // so that selectors can start traversing it for its own usage
-export const getAppState = createFeatureSelector<AppState>('todos');
+export const getAppState = createFeatureSelector<AppState>('app');
