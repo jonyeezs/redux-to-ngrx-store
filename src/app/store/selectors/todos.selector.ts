@@ -24,7 +24,12 @@ export const getTodos = createSelector(
       // https://blog.mariusschulz.com/2016/05/25/the-andand-and-operator-in-javascript#using-logical-operators-with-non-boolean-values
       const found = router.state && todos.find(todo => todo.id === router.state.params.todoId);
       // Make sure you only work with immutable!
-      return {...found};
+      return found ? {...found}
+        : {id: getRandomId(), label: '', tags: [], complete: false};
+
+      function getRandomId() {
+        return Math.floor(Math.random() * Math.floor(100)).toString();
+      }
     }
   );
 

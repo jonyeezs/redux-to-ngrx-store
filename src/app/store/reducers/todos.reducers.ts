@@ -37,21 +37,30 @@ export function TodosReducer(
         loaded: false
       };
     }
-    case fromTodos.LOAD_TODOS_SUCCESS: {
-      const data = [...state.data, ...action.payload];
+    // case fromTodos.LOAD_TODOS_SUCCESS: {
+    //   const data = [...state.data, ...action.payload];
+    //   return {
+    //     ...state,
+    //     loading: false,
+    //     loaded: true,
+    //     data
+    //   };
+    // }
+    // case fromTodos.LOAD_TODOS_FAIL: {
+    //   const data = state.data.filter(todo => todo.label !== action.payload.label);
+    //   return {
+    //     ...state,
+    //     loading: false,
+    //     loaded: false
+    //   };
+    // }
+    case fromTodos.CREATE_TODO: {
+      const data = [...state.data, action.payload];
       return {
         ...state,
         loading: false,
         loaded: true,
         data
-      };
-    }
-    case fromTodos.LOAD_TODOS_FAIL: {
-      const data = state.data.filter(todo => todo.label !== action.payload.label);
-      return {
-        ...state,
-        loading: false,
-        loaded: false
       };
     }
   }

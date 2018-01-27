@@ -7,7 +7,7 @@ import * as fromStore from '../../store';
 import { Tag } from '../../models/Tag';
 
 @Component({
-  selector: 'app-todo-tags',
+  selector: 'app-tags-display',
   template: `
     <ul *ngFor="let tag of (tags$ | async)">
       <li>

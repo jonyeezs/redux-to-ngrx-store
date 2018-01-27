@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/do';
 import * as fromStore from '../../store';
 
 import { Todo } from '../../models/Todo';
@@ -18,14 +20,20 @@ export class TodoEntryComponent implements OnInit {
 
   todo$: Observable<Todo>;
 
-  constructor(private store: Store<fromStore.AppState>) { }
+  private isNew: boolean;
+  constructor(private store: Store<fromStore.AppState>, private router: Router) { }
 
   ngOnInit() {
-    this.todo$ = this.store.select(fromStore.getSelectedTodo);
+    this.todo$ = this.store.select(fromStore.getSelectedTodo)
+      .do(todo => (this.isNew = !!todo.id));
   }
 
   onUpdate(updatedTodo: Todo) {
-    console.table(updatedTodo);
-
+    if (this.isNew) {
+      this.store.dispatch(new fromStore.CreateTodo(updatedTodo));
+      this.router.navigate(['']);
+    } else {
+      console.log(updatedTodo);
+    }
   }
 }

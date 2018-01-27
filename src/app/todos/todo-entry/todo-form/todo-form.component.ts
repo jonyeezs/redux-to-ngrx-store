@@ -9,6 +9,7 @@ import { Todo } from '../../../models/Todo';
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./todo-form.component.css']
 })
 export class TodoFormComponent implements OnInit, OnChanges {
@@ -22,7 +23,7 @@ export class TodoFormComponent implements OnInit, OnChanges {
   todoForm = this.formBuilder.group({
     label: ['']
   });
-
+  public todoId: string;
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -30,7 +31,8 @@ export class TodoFormComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.todo && this.todo.id) {
-      this.todoForm.patchValue(this.todo);
+      this.todoForm.patchValue(changes.todo.currentValue);
+      this.todoId = this.todo.id;
     }
   }
 
