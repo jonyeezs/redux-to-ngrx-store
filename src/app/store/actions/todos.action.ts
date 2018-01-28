@@ -13,6 +13,8 @@ export const CREATE_TODO = '[Todos] Create Todos';
 // export const CREATE_TODO_FAIL = '[Todos] Fail to Create Todos';
 // export const CREATE_TODO_SUCCESS = '[Todos] Successfully Create Todos';
 
+export const UPDATE_TODO = '[Todos] Update Todo';
+
 export const DELETE_TODO = '[Todos] Delete Todos';
 // export const DELETE_TODO_FAIL = '[Todos] Fail to Delete Todos';
 // export const DELETE_TODO_SUCCESS = '[Todos] Successfully Delete Todos';
@@ -35,6 +37,11 @@ export class LoadTodo implements Action {
 
 export class CreateTodo implements Action {
   readonly type = CREATE_TODO;
+  constructor(public payload: Todo) {}
+}
+
+export class UpdateTodo implements Action {
+  readonly type = UPDATE_TODO;
   constructor(public payload: Todo) {}
 }
 
@@ -66,4 +73,5 @@ export class DeleteTodo implements Action {
 // action types. Will be used for reducers DI
 export type TodosAction = LoadTodo | // LoadTodoFail | LoadTodoSuccess |
                           CreateTodo | // | CreateTodoFail | CreateTodoSuccess;
+                          UpdateTodo |
                           DeleteTodo;

@@ -1,6 +1,6 @@
-<form [formGroup]="todoForm">
+<form [formGroup]="todoForm" (ngSubmit)="saveTodo(todoForm)">
   <label>Name
-    <input type="text" formControlName="label">
+    <input type="text" formControlName="label" required>
   </label>
 
   <app-tags-display></app-tags-display>
@@ -8,5 +8,5 @@
   <br />
   <app-tags (add)="onAdd($event)"></app-tags>
 
-  <button type="button" (click)="saveTodo(todoForm)">Save</button>
+  <button type="submit">Save</button>
 </form>

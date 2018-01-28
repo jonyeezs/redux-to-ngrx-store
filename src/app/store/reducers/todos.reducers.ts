@@ -63,6 +63,17 @@ export function TodosReducer(
         data
       };
     }
+    case fromTodos.UPDATE_TODO: {
+      const indexToUpdate = state.data.findIndex((todoData) => todoData.id === action.payload.id);
+      const data = [...state.data];
+      data[indexToUpdate] = action.payload;
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        data
+      };
+    }
   }
 
   return state;

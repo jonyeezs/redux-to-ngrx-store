@@ -25,15 +25,14 @@ export class TodoEntryComponent implements OnInit {
 
   ngOnInit() {
     this.todo$ = this.store.select(fromStore.getSelectedTodo)
-      .do(todo => (this.isNew = !!todo.id));
+      .do(todo => (this.isNew = !todo.label));
   }
 
   onUpdate(updatedTodo: Todo) {
-    if (this.isNew) {
-      this.store.dispatch(new fromStore.CreateTodo(updatedTodo));
-      this.router.navigate(['']);
-    } else {
-      console.log(updatedTodo);
-    }
+    this.store.dispatch(
+      this.isNew ? new fromStore.CreateTodo(updatedTodo)
+        : new fromStore.UpdateTodo(updatedTodo));
+
+    this.router.navigate(['']);
   }
 }
