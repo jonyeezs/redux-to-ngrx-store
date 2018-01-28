@@ -29,7 +29,10 @@ export class ListComponent implements OnInit {
     this.store.dispatch(new fromStore.LoadTags());
     this.todos$ = this.store.select(fromStore.getTodos);
   }
-  onDelete(id) {
-    // this.todos = this.todos.filter((item) => item.id !== id);
+
+  // It's better to have one type of arguments for a certain store rather than specifics.
+  // Let the reducer map to the correct behaviour.
+  onDelete(todo: Todo) {
+    this.store.dispatch(new fromStore.DeleteTodo(todo));
   }
 }

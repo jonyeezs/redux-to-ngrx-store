@@ -74,6 +74,15 @@ export function TodosReducer(
         data
       };
     }
+    case fromTodos.DELETE_TODO: {
+      const data = state.data.filter(todo => todo.id !== action.payload.id);
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        data
+      };
+    }
   }
 
   return state;

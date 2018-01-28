@@ -15,7 +15,7 @@ export const CREATE_TODO = '[Todos] Create Todos';
 
 export const UPDATE_TODO = '[Todos] Update Todo';
 
-export const DELETE_TODO = '[Todos] Delete Todos';
+export const DELETE_TODO = '[Todos] Delete Todo';
 // export const DELETE_TODO_FAIL = '[Todos] Fail to Delete Todos';
 // export const DELETE_TODO_SUCCESS = '[Todos] Successfully Delete Todos';
 
@@ -56,7 +56,7 @@ export class UpdateTodo implements Action {
 // }
 
 export class DeleteTodo implements Action {
-  readonly type = CREATE_TODO;
+  readonly type = DELETE_TODO;
   constructor(public payload: Todo) {}
 }
 
