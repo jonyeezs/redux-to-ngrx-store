@@ -6,6 +6,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers, effects } from '../store';
 
+import { HasTodosRouterGuard } from '../../guards/has-todos.router.guard';
+import { TodoExistsRouterGuard } from '../../guards/todo-exists.router.guard';
+
 import { Routes, RouterModule } from '@angular/router';
 
 import { TagsModule } from './tags/tags.module';
@@ -18,18 +21,21 @@ import { TodoItemComponent } from './list/todo-item/todo-item.component';
 export const ROUTES: Routes = [
   {
     path: '',
+    canActivate: [HasTodosRouterGuard],
     component: ListComponent,
+  },
+  {
+    path: 'new',
+    canActivate: [HasTodosRouterGuard],
+    component: TodoEntryComponent,
   },
   {
     // give a specific name for the ID
     // As we may get confuse with the many different id we are refering to
     path: ':todoId',
+    canActivate: [TodoExistsRouterGuard],
     component: TodoEntryComponent,
-  },
-  {
-    path: 'new',
-    component: TodoEntryComponent,
-  },
+  }
 ];
 
 @NgModule({
@@ -44,6 +50,7 @@ export const ROUTES: Routes = [
     EffectsModule.forFeature(effects),
     TagsModule
   ],
+  providers: [HasTodosRouterGuard, TodoExistsRouterGuard],
   declarations: [ListComponent, TodoEntryComponent, TodoFormComponent, TodoItemComponent]
 })
 export class TodosModule { }

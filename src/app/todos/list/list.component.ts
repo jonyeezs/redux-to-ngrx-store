@@ -25,7 +25,6 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     // The dollar sign indicates the variable is an observable
-    this.store.dispatch(new fromStore.LoadTodo());
     this.store.dispatch(new fromStore.LoadTags());
     this.todos$ = this.store.select(fromStore.getTodos);
   }

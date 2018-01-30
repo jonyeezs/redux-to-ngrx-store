@@ -33,8 +33,8 @@ export function TodosReducer(
     case fromTodos.LOAD_TODOS: {
       return {
         ...state,
-        loading: true,
-        loaded: false
+        loading: false,
+        loaded: true
       };
     }
     // case fromTodos.LOAD_TODOS_SUCCESS: {
