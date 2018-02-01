@@ -12,7 +12,7 @@ export interface TodosState {
     data: Todo[];
 }
 
-export const initialState: TodosState = {
+const initialState: TodosState = {
     loaded: false,
     loading: false,
     data: [{

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
@@ -18,6 +18,7 @@ import { Tag } from '../../models/Tag';
           </li>
     </ul>
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./tags-display.component.css']
 })
 export class TagsDisplayComponent implements OnInit {

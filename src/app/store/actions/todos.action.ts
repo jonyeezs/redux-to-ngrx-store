@@ -21,6 +21,10 @@ export const DELETE_TODO = '[Todos] Delete Todo';
 
 // Don't need to remember the type
 // Instantiating the class, gives you the information needed to create a valid object.
+/**
+ * Action to load all todos onto the state
+ * @param  payload     The Todo Sub state.
+ */
 export class LoadTodo implements Action {
   readonly type = LOAD_TODOS;
 }

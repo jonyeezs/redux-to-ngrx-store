@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Todo } from '../../../models/Todo';
@@ -6,6 +6,7 @@ import { Todo } from '../../../models/Todo';
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent implements OnInit {

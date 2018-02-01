@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -13,6 +13,7 @@ import { Todo } from '../../models/Todo';
       [todo]="todo$ | async"
       (update)="onUpdate($event)">
     </app-todo-form>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./todo-entry.component.css']
 })
 export class TodoEntryComponent implements OnInit {
