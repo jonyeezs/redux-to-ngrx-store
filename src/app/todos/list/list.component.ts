@@ -9,6 +9,7 @@ import { Todo } from '../../models/Todo';
 @Component({
   selector: 'app-list',
   template: `
+  <app-counter></app-counter>
   <div class="todos">
     <app-todo-item *ngFor="let item of (todos$ | async)" class="list"
       [todo]="item"

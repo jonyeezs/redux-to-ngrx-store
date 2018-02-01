@@ -13,6 +13,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TagsModule } from './tags/tags.module';
 
+import { CounterComponent } from './counter/counter.component';
 import { ListComponent } from './list/list.component';
 import { TodoEntryComponent } from './todo-entry/todo-entry.component';
 import { TodoFormComponent } from './todo-entry/todo-form/todo-form.component';
@@ -51,6 +52,6 @@ export const ROUTES: Routes = [
     TagsModule
   ],
   providers: [HasTodosRouterGuard, TodoExistsRouterGuard],
-  declarations: [ListComponent, TodoEntryComponent, TodoFormComponent, TodoItemComponent]
+  declarations: [CounterComponent, ListComponent, TodoEntryComponent, TodoFormComponent, TodoItemComponent]
 })
 export class TodosModule { }

@@ -20,7 +20,6 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
   : [];
 
 import { AppComponent } from './app.component';
-import { CounterComponent } from './counter/counter.component';
 
 // routes
 export const ROUTES: Routes = [
@@ -33,8 +32,7 @@ export const ROUTES: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CounterComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
