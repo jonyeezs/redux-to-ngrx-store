@@ -3,7 +3,7 @@
 
 ---
 
-> This repo is my learning experience on the Ultimate Angular NGRX Store + Effects course.
+> This repo is my learning experience on the [Ultimate Angular NGRX Store + Effects course](https://ultimateangular.com/ngrx-store-effects).
 
 ---
 
