@@ -1,13 +1,12 @@
-<h1 align="center">Simple Redux Store</h1>
-<h4 align="center">Vanilla TypeScript example of a Redux Store</h4>
-
----
-
-<a href="https://ultimateangular.com" target="_blank"><img src="https://ultimateangular.com/assets/img/banner.jpg"></a>
+<h1 align="center">Simple Redux Store -to- Angular + Ngrx/Store</h1>
+<h4 align="center">A guide by commit to understand Redux and learn concepts to upgrade your Angular App to Ngrx/Store ready</h4>
 
 ---
 
 > This repo is my learning experience on the Ultimate Angular NGRX Store + Effects course.
+
+---
+
 
 ## Prerequisites
 
